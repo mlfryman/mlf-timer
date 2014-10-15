@@ -5,12 +5,19 @@ html
     meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width')
     title
     link(href='css/ionic.app.css', rel='stylesheet')
+    link(href='css/ionicons.app.css', rel='stylesheet')
+    link(href='css/style.css', rel='stylesheet')
     script(src='lib/ionic/js/ionic.bundle.js')
     script(src='cordova.js')
     script(src='js/app.js')
     script(src='js/MainCtrl.js')
   body(ng-app='mlf-timer', ng-controller='MainCtrl')
     ion-pane
-      ion-header-bar.bar-stable
+      ion-header-bar.bar-positive
         h1.title {{title}}
       ion-content
+
+
+      .bar.bar-footer.bar-balanced
+        .center
+          small &copy; 2014 mlfryman
