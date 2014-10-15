@@ -12,32 +12,35 @@ html
     script(src='cordova.js')
     script(src='js/app.js')
     script(src='js/MainCtrl.js')
-  body(ng-app='mlf-timer', ng-controller='MainCtrl')
+  body(ng-app='mlf-timer')
     ion-pane
       ion-header-bar.bar-positive
         h1.title {{title}}
-      ion-content
+      // ionic content has it\'s own scope!
+      ion-content(ng-controller='MainCtrl')
         .row
           .col
-            label.item.item-input
-              input(type='number', placeholder='hrs')
+            label.item.item-input.pull-right
+              input(type='number', placeholder='0 hrs', ng-model='hrs', autofocus, default='0')
           .col
             label.item.item-input
-              input(type='number', placeholder='mins')
+              input(type='number', placeholder='0 mins', ng-model='mins')
           .col
             label.item.item-input
-              input(type='number', placeholder='secs')
+              input(type='number', placeholder='0 secs', ng-model='secs')
+        .row
+          .col
+            button.button.button-small.button-balanced(ng-click='startTimer()', ng-disabled='timerRunning') Start Timer
+          .col
+            button.button.button-small.button-assertive(ng-click='stopTimer()', ng-disabled='!timerRunning') Stop Timer
         h3
           | Timer 3:
           timer {{minutes}} minutes,  {{seconds}} seconds
-        button(ng-click='startTimer()', ng-disabled='timerRunning') Start Timers
-        button(ng-click='stopTimer()', ng-disabled='!timerRunning') Stop Timers
-        br
-        br
+
         timer(autostart='false', countdown='190061')
           | {{days}} day{{daysS}}, {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.
         br
         timer(start-time='1357020000000'){{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds
-      .bar.bar-footer.bar-balanced
+      .bar.bar-footer.bar-dark
         .center
           small &copy; 2014 mlfryman
