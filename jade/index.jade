@@ -15,32 +15,29 @@ html
   body(ng-app='mlf-timer')
     ion-pane
       ion-header-bar.bar-positive
-        h1.title {{title}}
-      // ionic content has it\'s own scope!
+        h1.title Timer
+
       ion-content(ng-controller='MainCtrl')
         .row
           .col
-            label.item.item-input.pull-right
-              input(type='number', placeholder='0 hrs', ng-model='hrs', autofocus, default='0')
+            label.item.item-input
+              input(type='number', placeholder='0 hrs', ng-model='hrs', default='0')
           .col
             label.item.item-input
-              input(type='number', placeholder='0 mins', ng-model='mins')
+              input(type='number', placeholder='0 mins', ng-model='mins', default='0')
           .col
             label.item.item-input
-              input(type='number', placeholder='0 secs', ng-model='secs')
+              input(type='number', placeholder='0 secs', ng-model='secs', default='0')
         .row
           .col
-            button.button.button-small.button-balanced(ng-click='startTimer()', ng-disabled='timerRunning') Start Timer
+            button.button.button.button-balanced(ng-click='startTimer()', ng-disabled='timerRunning') Start
           .col
-            button.button.button-small.button-assertive(ng-click='stopTimer()', ng-disabled='!timerRunning') Stop Timer
+            button.button.button.button-assertive(ng-click='stopTimer()', ng-disabled='!timerRunning') Stop
         h3
-          | Timer 3:
+          | Timer:
           timer {{minutes}} minutes,  {{seconds}} seconds
 
-        timer(autostart='false', countdown='190061')
-          | {{days}} day{{daysS}}, {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.
-        br
-        timer(start-time='1357020000000'){{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds
+          timer(start-time='{{ms}}') {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds
       .bar.bar-footer.bar-dark
         .center
           small &copy; 2014 mlfryman

@@ -16,40 +16,38 @@
   <body ng-app="mlf-timer">
     <ion-pane>
       <ion-header-bar class="bar-positive">
-        <h1 class="title">{{title}}</h1>
+        <h1 class="title">Timer</h1>
       </ion-header-bar>
-      <!-- ionic content has it\'s own scope!-->
       <ion-content ng-controller="MainCtrl">
         <div class="row">
           <div class="col">
-            <label class="item item-input pull-right">
-              <input type="number" placeholder="0 hrs" ng-model="hrs" autofocus default="0">
+            <label class="item item-input">
+              <input type="number" placeholder="0 hrs" ng-model="hrs" default="0">
             </label>
           </div>
           <div class="col">
             <label class="item item-input">
-              <input type="number" placeholder="0 mins" ng-model="mins">
+              <input type="number" placeholder="0 mins" ng-model="mins" default="0">
             </label>
           </div>
           <div class="col">
             <label class="item item-input">
-              <input type="number" placeholder="0 secs" ng-model="secs">
+              <input type="number" placeholder="0 secs" ng-model="secs" default="0">
             </label>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <button ng-click="startTimer()" ng-disabled="timerRunning" class="button button-small button-balanced">Start Timer</button>
+            <button ng-click="startTimer()" ng-disabled="timerRunning" class="button button button-balanced">Start</button>
           </div>
           <div class="col">
-            <button ng-click="stopTimer()" ng-disabled="!timerRunning" class="button button-small button-assertive">Stop Timer</button>
+            <button ng-click="stopTimer()" ng-disabled="!timerRunning" class="button button button-assertive">Stop</button>
           </div>
         </div>
-        <h3>Timer 3:
+        <h3>Timer:
           <timer>{{minutes}} minutes,  {{seconds}} seconds</timer>
+          <timer start-time="{{ms}}">{{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
         </h3>
-        <timer autostart="false" countdown="190061">{{days}} day{{daysS}}, {{hours}} hour{{hoursS}}, {{minutes}} minute{{minutesS}}, {{seconds}} second{{secondsS}}.</timer><br>
-        <timer start-time="1357020000000">{{days}} days, {{hours}} hours, {{minutes}} minutes, {{seconds}} seconds</timer>
       </ion-content>
       <div class="bar bar-footer bar-dark">
         <div class="center"><small>&copy; 2014 mlfryman</small></div>
