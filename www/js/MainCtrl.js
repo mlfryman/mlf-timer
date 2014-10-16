@@ -11,7 +11,7 @@
     $scope.hCvt = function(){
       return $scope.h * 3600000;
     };
-    
+
     $scope.mCvt = function(){
       return $scope.m * 60000;
     };

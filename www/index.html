@@ -19,20 +19,30 @@
         <h1 class="title">Timer</h1>
       </ion-header-bar>
       <ion-content ng-controller="MainCtrl">
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="0 min" ng-model="minutes" readonly>
+          </label><a ng-click="changeMin(1)" class="button button-small"><i class="icon ion-ios7-arrow-up"></i></a><a ng-click="changeMin(-1)" class="button button-small"><i class="icon ion-ios7-arrow-down"></i></a>
+        </div>
+        <div class="item item-input-inset">
+          <label class="item-input-wrapper">
+            <input type="number" placeholder="0 sec" ng-model="seconds" readonly>
+          </label><a ng-click="incrementSeconds(1)" class="button button-small"><i class="icon ion-ios7-arrow-up"></i></a><a ng-click="decrementSeconds(-1)" class="button button-small"><i class="icon ion-ios7-arrow-down"></i></a>
+        </div>
         <div class="row">
           <div class="col">
             <label class="item item-input">
-              <input type="number" placeholder="0 hrs" ng-model="hrs" default="0">
+              <input type="number" placeholder="0 hrs" ng-model="hours">
             </label>
           </div>
           <div class="col">
             <label class="item item-input">
-              <input type="number" placeholder="0 mins" ng-model="mins" default="0">
+              <input type="number" placeholder="0 mins" ng-model="minutes">
             </label>
           </div>
           <div class="col">
             <label class="item item-input">
-              <input type="number" placeholder="0 secs" ng-model="secs" default="0">
+              <input type="number" placeholder="0 secs" ng-model="seconds">
             </label>
           </div>
         </div>

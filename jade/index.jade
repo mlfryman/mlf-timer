@@ -16,18 +16,27 @@ html
     ion-pane
       ion-header-bar.bar-positive
         h1.title Timer
-
       ion-content(ng-controller='MainCtrl')
+        .item.item-input-inset
+            label.item-input-wrapper
+              input(type='number', placeholder='0 min', ng-model='minutes', readonly)
+            a.button.button-small(ng-click='changeMin(1)'): i.icon.ion-ios7-arrow-up
+            a.button.button-small(ng-click='changeMin(-1)'): i.icon.ion-ios7-arrow-down
+          .item.item-input-inset
+            label.item-input-wrapper
+              input(type='number', placeholder='0 sec', ng-model='seconds', readonly)
+            a.button.button-small(ng-click='incrementSeconds(1)'): i.icon.ion-ios7-arrow-up
+            a.button.button-small(ng-click='decrementSeconds(-1)'): i.icon.ion-ios7-arrow-down
         .row
           .col
             label.item.item-input
-              input(type='number', placeholder='0 hrs', ng-model='hrs', default='0')
+              input(type='number', placeholder='0 hrs', ng-model='hours')
           .col
             label.item.item-input
-              input(type='number', placeholder='0 mins', ng-model='mins', default='0')
+              input(type='number', placeholder='0 mins', ng-model='minutes')
           .col
             label.item.item-input
-              input(type='number', placeholder='0 secs', ng-model='secs', default='0')
+              input(type='number', placeholder='0 secs', ng-model='seconds')
         .row
           .col
             button.button.button.button-balanced(ng-click='startTimer()', ng-disabled='timerRunning') Start
